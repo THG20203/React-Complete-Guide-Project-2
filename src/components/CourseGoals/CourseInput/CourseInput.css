@@ -22,3 +22,17 @@
   background: #fad0ec;
   border-color: #8b005d;
 }
+
+.form-control.invalid input {
+  border-color: red;
+  /* Then we could target our input and set the border color to red */
+  background-color: #ffd7d7;
+}
+/* if form control also has the invalid class -> hence no space between form-control and
+invlaid, which means they both have to be on the same element. */
+
+.form-control.invalid label {
+  color: red;
+}
+
+/* All we have to do so the two rules above have an effect = add invalid class dynamically */

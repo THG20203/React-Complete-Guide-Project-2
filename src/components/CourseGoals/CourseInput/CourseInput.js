@@ -39,23 +39,18 @@ const CourseInput = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
-        <label style={{ color: !isValid ? "red" : "black" }}>Course Goal</label>
-        {/* Applying styles to label - inline style prop wants object as a value hence {{}} */}
-        {/* In that object, you target different CSS style props in JavaScript that you can set 
-        for this element/ component. */}
-        {/* color: red -> On provision the input is invalid- so, color: !valid ? red -> if not
-        isValid -> set this to red, otherwise set to black -> default color. */}
-        <input
-          style={{
-            borderColor: !isValid ? "red" : "black",
-            background: !isValid ? "salmon" : "transparent",
-          }}
-          type="text"
-          onChange={goalInputChangeHandler}
-        />
-        {/* Need to also change border and background-color of this input -> written in camel casing
-        cause JavaScript object -> case of 'borderColor' */}
+      <div className={`form-control ${!isValid ? "invalid" : ""}`}>
+        {/* for className on the div NOW need curly braces -> since need dynamic value. 
+        String is always a string -> its a hard coded value. */}
+        {/* now what we feed in can be a string, need to sometimes add invalid to this, so utilise
+        backticks. */}
+        {/* // BACKTICKS -> default JavaScript feature, called a TEMPLATE LITERAL -> constructs a 
+        string, but have have backticks rather than single quotes. Whatever you type between there 
+        will be treated as regular string. */}
+        {/* We can inject a dynamic value into that string. with syntax ${}. What we pass between 
+        curly braces can be any javascript expression. */}
+        <label>Course Goal</label>
+        <input type="text" onChange={goalInputChangeHandler} />
       </div>
       <Button type="submit">Add Goal</Button>
     </form>
