@@ -12,12 +12,18 @@ const CourseInput = (props) => {
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    if (enteredValue.trim())
-      /* Want to check something valid was entered before we triggered that on add goal 
+    if (enteredValue.trim().length === 0) {
+      return;
+    }
+    /* Want to check something valid was entered before we triggered that on add goal 
     function, so that function we got on this on add goal prop. Simple if statement in the 
     form submit handler, and check if the enteredValue Trim = built in method, removes
-    excess white space at beginning or the end. */
-      props.onAddGoal(enteredValue);
+    excess white space at beginning or the end - use it here, to rule out that user just entered
+    a lot of blanks. */
+    /* Then check the length -> if length is equal to 0 we know the input is essentially 
+    empty. In that case want to return -> so props.onAddGoal will not be executed because functional
+    execution stops when you return. */
+    props.onAddGoal(enteredValue);
   };
 
   return (
