@@ -42,7 +42,16 @@ const CourseInput = (props) => {
         for this element/ component. */}
         {/* color: red -> On provision the input is invalid- so, color: !valid ? red -> if not
         isValid -> set this to red, otherwise set to black -> default color. */}
-        <input type="text" onChange={goalInputChangeHandler} />
+        <input
+          style={{
+            borderColor: !isValid ? "red" : "black",
+            background: !isValid ? "salmon" : "transparent",
+          }}
+          type="text"
+          onChange={goalInputChangeHandler}
+        />
+        {/* Need to also change border and background-color of this input -> written in camel casing
+        cause JavaScript object -> case of 'borderColor' */}
       </div>
       <Button type="submit">Add Goal</Button>
     </form>
