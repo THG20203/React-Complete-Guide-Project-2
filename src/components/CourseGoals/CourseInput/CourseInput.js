@@ -36,7 +36,12 @@ const CourseInput = (props) => {
   return (
     <form onSubmit={formSubmitHandler}>
       <div className="form-control">
-        <label>Course Goal</label>
+        <label style={{ color: !isValid ? "red" : "black" }}>Course Goal</label>
+        {/* Applying styles to label - inline style prop wants object as a value hence {{}} */}
+        {/* In that object, you target different CSS style props in JavaScript that you can set 
+        for this element/ component. */}
+        {/* color: red -> On provision the input is invalid- so, color: !valid ? red -> if not
+        isValid -> set this to red, otherwise set to black -> default color. */}
         <input type="text" onChange={goalInputChangeHandler} />
       </div>
       <Button type="submit">Add Goal</Button>
