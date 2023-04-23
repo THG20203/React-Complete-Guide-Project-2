@@ -5,6 +5,10 @@ import "./CourseInput.css";
 
 const CourseInput = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
+  const [isValid, setIsValid] = useState(true);
+  /* adding useState -> has the user submitted and entered something valid or not? True or
+  false choice hence boolean. Initially trust the user hence true -> as long as ture, consider
+  the input as valid. */
 
   const goalInputChangeHandler = (event) => {
     setEnteredValue(event.target.value);
@@ -13,6 +17,9 @@ const CourseInput = (props) => {
   const formSubmitHandler = (event) => {
     event.preventDefault();
     if (enteredValue.trim().length === 0) {
+      setIsValid(false);
+      /* If make it into the length is 0 block can call setIsValid to false. Why? What the user 
+      entered and submitted definitely is not valid. */
       return;
     }
     /* Want to check something valid was entered before we triggered that on add goal 
