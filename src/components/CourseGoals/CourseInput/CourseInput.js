@@ -75,22 +75,25 @@ const CourseInput = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className={`form-control ${!isValid ? "invalid" : ""}`}>
-        {/* for className on the div NOW need curly braces -> since need dynamic value. 
-        String is always a string -> its a hard coded value. */}
-        {/* now what we feed in can be a string, need to sometimes add invalid to this, so utilise
-        backticks. */}
-        {/* // BACKTICKS -> default JavaScript feature, called a TEMPLATE LITERAL -> constructs a 
-        string, but have have backticks rather than single quotes. Whatever you type between there 
-        will be treated as regular string. */}
-        {/* We can inject a dynamic value into that string. with syntax ${}. What we pass between 
-        curly braces can be any javascript expression. */}
+      <FormControl>
+        {/* Can also use props to styled components */}
         <label>Course Goal</label>
         <input type="text" onChange={goalInputChangeHandler} />
-      </div>
+      </FormControl>
       <Button type="submit">Add Goal</Button>
     </form>
   );
 };
 
 export default CourseInput;
+
+//TEMPLATE LITERAL NOTES
+/* for className on the div NOW need curly braces -> since need dynamic value. 
+        String is always a string -> its a hard coded value. */
+/* now what we feed in can be a string, need to sometimes add invalid to this, so utilise
+        backticks. */
+/* // BACKTICKS -> default JavaScript feature, called a TEMPLATE LITERAL -> constructs a 
+        string, but have have backticks rather than single quotes. Whatever you type between there 
+        will be treated as regular string. */
+/* We can inject a dynamic value into that string. with syntax ${}. What we pass between 
+        curly braces can be any javascript expression. */
