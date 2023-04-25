@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 /* use styled components package since we just installed it */
 
@@ -11,12 +10,12 @@ const Button = styled.button`
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
   cursor: pointer;
 
-  .button:focus {
+  &:focus {
     outline: none;
   }
 
-  .button:hover,
-  .button:active {
+  &:hover,
+  &:active {
     background: #ac0e77;
     border-color: #ac0e77;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
