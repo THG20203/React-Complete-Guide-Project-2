@@ -75,8 +75,8 @@ const CourseInput = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <FormControl>
-        {/* Can also use props to styled components */}
+      <FormControl className={!isValid && "invalid"}>
+        {/* if invalid, the invalid class is getting added */}
         <label>Course Goal</label>
         <input type="text" onChange={goalInputChangeHandler} />
       </FormControl>
